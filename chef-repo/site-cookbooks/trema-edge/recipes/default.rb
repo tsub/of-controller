@@ -7,10 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w(git ruby-dev libsqlite3-dev libssl-dev libpcap-dev).each do |package_name|
-  package package_name do
+%w(git ruby ruby-dev libsqlite3-dev libssl-dev libpcap-dev).each do |pkg|
+  package pkg do
     action :install
   end
+end
+
+package 'ruby' do
+  action :install
+  notifies :create, resources(file: '/usr/include/ruby-2.1.0/ruby/config.h')
 end
 
 file '/usr/include/ruby-2.1.0/ruby/config.h' do
@@ -18,7 +23,7 @@ file '/usr/include/ruby-2.1.0/ruby/config.h' do
   group 'root'
   mode 0755
   content File.open('/usr/include/x86_64-linux-gnu/ruby-2.1.0/ruby/config.h').read
-  action :create
+  action :nothing
 end
 
 gem_package 'bundler' do
@@ -34,5 +39,11 @@ end
 execute 'bundle install' do
   cwd '/vagrant/trema-edge'
   command 'bundle install'
+  action :run
+end
+
+execute 'trema-edge install' do
+  cwd '/vagrant/trema-edge'
+  command 'rake'
   action :run
 end

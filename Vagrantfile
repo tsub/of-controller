@@ -72,7 +72,7 @@ Vagrant.configure(2) do |config|
     chef.cookbooks_path = %w(chef-repo/cookbooks chef-repo/site-cookbooks chef-repo/berks-cookbooks)
     chef.run_list = %w(
       apt
-      trema
+      trema-edge
     )
   end
 end
