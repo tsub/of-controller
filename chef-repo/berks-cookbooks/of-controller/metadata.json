@@ -1,0 +1,32 @@
+{
+  "name": "of-controller",
+  "description": "setup OpenFlow Controller",
+  "long_description": "setup OpenFlow Controller",
+  "maintainer": "Tsubasa Takayama",
+  "maintainer_email": "b1207000@planet.kanazawa-it.ac.jp",
+  "license": "All rights reserved",
+  "platforms": {
+  },
+  "dependencies": {
+    "git": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.0.0",
+  "source_url": "",
+  "issues_url": ""
+}
